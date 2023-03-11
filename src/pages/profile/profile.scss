@@ -59,6 +59,11 @@ $main-text-color: #1E1E1E;
         border-radius: 50%;
         width: 130px;
         text-align: center;
+        &:hover {
+          background: #000000;
+          opacity: 0.5;
+          position: relative;
+        }
       }
 
       &__ava-container {
