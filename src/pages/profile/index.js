@@ -1,8 +1,13 @@
 import Handlebars from  "handlebars";
-import { profileTpl } from './profileTpl'
-import "./profile.scss"
+import { profileTpl } from './profileTpl';
+import arrowImg from "../../static/img/arrov.png";
+import avatartImg from "../../static/img/ava.png";
+import "./profile.scss";
+
 
 const profileData = { 
+  'arrowImg':arrowImg,
+  'avatartImg':avatartImg,
   inputsPers: [
   { labelVal : 'Почта', name : 'email', type : 'email', value : 'pochta@yandex.ru'},
   { labelVal : 'Логин', name : 'login', type : 'text', value : 'ivanivanov'},
