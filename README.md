@@ -5,8 +5,8 @@
 
 Проект находится в разработке.
 
-
-Демо проекта на netlify https://monumental-youtiao-673ea7.netlify.app
+Макет проекта - https://www.figma.com/file/qXB4wvQbVQBd8SHELCv7hP/Chat_YP_ruslan?node-id=0%3A1&t=7nxdwAuIlsLqtlA5-0
+Демо проекта на netlify - https://monumental-youtiao-673ea7.netlify.app
 
 ## Установка:
 
