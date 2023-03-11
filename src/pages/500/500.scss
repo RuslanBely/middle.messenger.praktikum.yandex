@@ -1,0 +1,30 @@
+$light: #E5E5E5;
+$base-color: #FFFFFF;
+$blue-color: #3369F3;
+$font: 'Inter';
+$main-text-color: #1E1E1E;
+
+.p500 {
+  background-color: $base-color;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+
+  &__h1{
+    font-size: 40px;
+  }
+
+  &__descr {
+    font-size: 20px;
+    margin-top: 20px;
+  }
+
+  &__link {
+    text-decoration: none;
+    margin-top: 70px;
+    color: $blue-color;
+    font-size: 11px;
+  }
+}
