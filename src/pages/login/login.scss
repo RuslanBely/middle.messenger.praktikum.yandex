@@ -1,0 +1,109 @@
+$light: #E5E5E5;
+$base-color: #FFFFFF;
+$blue-color:#3369F3;
+$font: 'Inter';
+$main-text-color: #1E1E1E;
+$width-form: 280px;
+
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  -ms-border-radius: $radius;
+  border-radius: $radius;
+}
+
+@mixin button-reset {
+  padding: 0;
+  border: none;
+  font: inherit;
+  color: inherit;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.login {
+  background-color: $base-color;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 450px;
+  max-width: 340px;
+  position: absolute;
+  top: calc(50% - 225px);
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.14);
+  @include border-radius(10px);
+  color: $main-text-color;
+
+
+  &-h1 {
+    margin: 50px auto 40px;
+    font-family: $font;
+    font-size: 20px;
+    font-style: normal;
+    line-height: 20px;
+    font-weight: 500;
+  }
+
+  .login-form {
+
+    flex: 1;
+
+    &__label {
+      font-size: 9px;
+      color: #999999;
+      font-style: normal;
+    }
+
+    &__input {
+      border: none;
+      border-bottom: 1px solid $blue-color;
+      height: 13px;
+      width: $width-form;
+      color: $main-text-color;
+
+      &:focus {
+        outline: none;
+      }
+    }
+    
+    &__buttons{
+      position: absolute;
+      bottom: 10px;
+      margin: 0 auto; 
+         
+    }
+  
+  &__submit-button{
+    @include button-reset;  
+    background: #F38433;
+    width: $width-form;
+    height: 37px;
+    @include border-radius(8px);
+    span {
+      color: #FFFFFF;
+    }
+  }
+
+  &__sign{
+    @include button-reset;  
+    width: $width-form;
+    height: 37px;
+    @include border-radius(8px);
+   &-a {
+     text-decoration: none;
+      color: $blue-color;
+      margin: 15px auto;
+      font-size: 11px;
+      display: block;
+      width: $width-form;
+      text-align: center;
+    }
+  }
+
+  
+
+  }
+}

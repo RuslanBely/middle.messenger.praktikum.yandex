@@ -1,0 +1,21 @@
+{
+  "name": "chat",
+  "version": "1.0.0",
+  "description": "Chat for messaging",
+  "scripts": {
+    "dev": "parcel ./static/index.html",
+    "build": "parcel build ./static/index.html",
+    "start": "npm run build && node ./server.js"
+  },
+  "author": "Ruslan Belyi",
+  "license": "ISC",
+  "devDependencies": {
+    "@parcel/transformer-sass": "^2.8.3",
+    "express": "^4.18.2",
+    "parcel": "^2.8.3"
+  },
+  "dependencies": {
+    "@parcel/transformer-inline-string": "^2.8.3",
+    "handlebars": "^4.7.7"
+  }
+}
