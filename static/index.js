@@ -8,4 +8,3 @@ root.innerHTML = app();
 
 /*Временное меню для навигации*/
 root.insertAdjacentHTML("beforebegin",tempMenu())
-

@@ -13,5 +13,5 @@ const linkList = {
   ],
 };
   export const tempMenu = () => {
-      return Handlebars.compile('<div class={{class}}>{{#each links}}<a href={{link}}>{{ancor}}</a>{{/each}}</div>')(linkList);
+      return Handlebars.compile('<nav class={{class}}><ul>{{#each links}}<li><a href={{link}}>{{ancor}}</a></li>{{/each}}</ul></nav>')(linkList);
     };

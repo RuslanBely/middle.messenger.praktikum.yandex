@@ -1,6 +1,6 @@
 $light: #E5E5E5;
 $base-color: #FFFFFF;
-$blue-color:#3369F3;
+$blue-color: #3369F3;
 $font: 'Inter';
 $main-text-color: #1E1E1E;
 $width-form: 280px;
@@ -69,42 +69,41 @@ $width-form: 280px;
         outline: none;
       }
     }
-    
-    &__buttons{
+
+    &__buttons {
       position: absolute;
       bottom: 10px;
-      margin: 0 auto; 
-         
+      margin: 0 auto;
+
     }
-  
-  &__submit-button{
-    @include button-reset;  
-    background: #F38433;
-    width: $width-form;
-    height: 37px;
-    @include border-radius(8px);
-    span {
-      color: #FFFFFF;
+
+    &__submit-button {
+      @include button-reset;
+      background: #F38433;
+      width: $width-form;
+      height: 37px;
+      @include border-radius(8px);
+
+      span {
+        color: #FFFFFF;
+      }
     }
-  }
 
-  &__sign{
-    @include button-reset;  
-    width: $width-form;
-    height: 37px;
-    @include border-radius(8px);
-    &-a {
-      text-decoration: none;
-       color: $blue-color;
-       margin: 15px auto;
-       font-size: 11px;
-       display: block;
-       width: $width-form;
-       text-align: center;
-     }
-  }
+    &__sign {
+      @include button-reset;
+      width: $width-form;
+      height: 37px;
+      @include border-radius(8px);
 
-  
-
+      &-a {
+        text-decoration: none;
+        color: $blue-color;
+        margin: 15px auto;
+        font-size: 11px;
+        display: block;
+        width: $width-form;
+        text-align: center;
+      }
+    }
   }
 }
