@@ -12,7 +12,7 @@ export class SigninPage extends Block<SigninProps>{
   
 init() {
   this.children.formSignin = new Form({
-  className:'loginSignin-form',
+  className:'login-signin-form',
   inputs: [
       { labelVal : 'Почта', name : 'email', type : 'email'},
       { labelVal : 'Логин', name : 'login', type : 'text'},
@@ -24,7 +24,7 @@ init() {
         ],
   submButton:{
     label: 'Зарегистрироваться',
-    className: 'loginSignin-form__submit-button',
+    className: 'login-signin-form__submit-button',
     type: 'submit',
     name: 'Registration'
             }

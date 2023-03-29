@@ -12,14 +12,14 @@ export class LoginPage extends Block<LoginProps>{
 
 init() {
   this.children.formAuth = new Form({
-    className:'loginSignin-form',
+    className:'login-signin-form',
     inputs: [
       { labelVal : 'Логин', name : 'login', type : 'text' },
       { labelVal : 'Пароль', name : 'password', type : 'password'}
     ],
     submButton:{
       label: 'Авторизоваться',
-      className: 'loginSignin-form__submit-button',
+      className: 'login-signin-form__submit-button',
       type: 'submit',
       name: 'enter'
     }

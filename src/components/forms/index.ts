@@ -30,7 +30,7 @@ export class Form extends Block<FormProps> {
       type: this.props.submButton.type,
       name: this.props.submButton.name,
     });
-    if (this.props.className==="loginSignin-form"){
+    if (this.props.className==="login-signin-form"){
         this.props.Tpl=FormTplLogSign;
     } else if (this.props.className==="profile-form") {
       this.props.Tpl=FormPrTplProf;
