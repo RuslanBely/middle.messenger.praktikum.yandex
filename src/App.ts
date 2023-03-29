@@ -1,25 +1,33 @@
-import { login } from "./pages/login"
-import { profile } from "./pages/profile"
+import { LoginPage } from "./pages/login"
+import { ProfilePage } from "./pages/profile"
 import { chats } from "./pages/chats"
-import { signin } from "./pages/signin"
+import { SigninPage } from "./pages/signin"
 import { p500 } from "./pages/500"
 import { p404 } from "./pages/404"
+import { Button } from "../src/components/buttons";
+
 
 export const app = () =>{
   switch (window.location.pathname) {
     case '/login':
-      return login();
+      const loginPage = new LoginPage({})
+     return loginPage;
+    case '/signin':  
+    const signinPage = new SigninPage({})
+    return signinPage;
     case '/profile':
-      return profile();
-    case '/chats':
+      const profilePage = new ProfilePage({})
+      return profilePage;
+   /* case '/chats':
       return chats();
-    case '/signin':
+    
       return signin();
     case '/500':
       return p500();
     case '/404':
-      return p404();
+      return p404();*/
     default:
-      return '';
+      const loginPageD = new LoginPage({})
+     return loginPageD;
   }
 }
