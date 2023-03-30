@@ -18,7 +18,7 @@ $width-form: 280px;
   cursor: pointer;
 }
 
-button{
+.login-signin-form__submit-button {
 @include button-reset;
 
 background: #F38433;

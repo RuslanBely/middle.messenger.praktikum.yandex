@@ -1,11 +1,12 @@
 import { FormTplLogSign } from "./FormTplLS";
 import { FormPrTplProf } from "./FormTplProf";
+import { FormTplChats } from "./FormTplLChats";
 import { Block } from "../../utils/block";
 import { Button } from "../buttons";
 import { validation } from "../../utils/validationForm";
-import "./logSign.scss"
-import "./profile.scss"
-
+import "./st_logSign.scss"
+import "./st_profile.scss"
+import "./st_chats.scss"
 
 interface FormProps {
   className: string;
@@ -30,10 +31,13 @@ export class Form extends Block<FormProps> {
       type: this.props.submButton.type,
       name: this.props.submButton.name,
     });
+
     if (this.props.className==="login-signin-form"){
         this.props.Tpl=FormTplLogSign;
     } else if (this.props.className==="profile-form") {
-      this.props.Tpl=FormPrTplProf;
+      this.props.Tpl=FormPrTplProf;      
+    } else if (this.props.className==="chat-form") {
+      this.props.Tpl=FormTplChats;
     };    
   }
 
@@ -44,6 +48,8 @@ export class Form extends Block<FormProps> {
 
   componentDidMount(): void {
     console.log("FormMount");
+    this.children.submButton.dispatchComponentDidMoun();
+
 
     this.element.querySelectorAll("input").forEach((el) => {
       el.addEventListener("blur", () => {
@@ -55,10 +61,13 @@ export class Form extends Block<FormProps> {
           el.setCustomValidity(validResult.errorList[el.name]);
           el.dataset.reported="true";
           el.reportValidity();
-         } else if (validResult.isValid)  {
+         } 
+         
+         else if (validResult.isValid)  {
           el.setCustomValidity("");
         }
       });
+
       el.addEventListener("focus", () => {
         const checkOb: Record<string, string> = {};
         checkOb[el.name] = el.value;
@@ -73,8 +82,6 @@ export class Form extends Block<FormProps> {
         if (el.dataset.reported === "true") el.dataset.reported="false"
             }
       );
-
-
     });
 
     
@@ -95,8 +102,7 @@ export class Form extends Block<FormProps> {
         for (let item in validResult.errorList){
           form[item].setCustomValidity(item.valueOf)
           form[item].reportValidity();
-                  }
-        
+        }
       }
     });
   }

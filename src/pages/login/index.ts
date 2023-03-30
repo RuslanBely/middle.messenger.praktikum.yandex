@@ -30,7 +30,7 @@ render()  {
   return this.compile(loginTpl, this.props);
 }
 
-protected componentDidMount(): void {
+componentDidMount(){
   console.log('LoginMount')
   this.children.formAuth.dispatchComponentDidMoun()
 }

@@ -17,8 +17,3 @@ export class ErrPage extends Block<ErrPageProps>{
   }
 
 }
-
-
-// export const p500 = () => {
-//   return Handlebars.compile(p500Tpl)({});
-//};

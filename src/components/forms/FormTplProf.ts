@@ -35,6 +35,4 @@ export const  FormPrTplProf =`
   </div>
 </div>
 {{{submButton}}}
-
-
 `;

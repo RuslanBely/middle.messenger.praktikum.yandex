@@ -1,18 +1,21 @@
-export const chatsTpl =`
-<div class="wrapper">
-      <aside class="chats"></aside>
-      <div class="chat">
-        <form class="chat-form" action="">
-          <div class="chat-form__input-container">
-            <input class="chat-form__input" type="text" name="message" value="Сообщение">
-          </div>
-          <div class="profile-form__buttons">
-            <button class="profile-form__submit-button button" type="submit">
-              <span class="button__submit_orange login-form__submit">Отправить</span>
-            </button>
-          </div>
-        </form>
-      </div>
+export const chatsTpl =`<div class="wrapper">
+<aside class="chats">
+    <div class="chats__search-frofile">
+        <a class="chats__profile" href="/profile">Профиль ></a>
+        <div class="chats__search">
+            <input class="chats__search-input" type="text" placeholder="Поиск">
+        </div>
+    </div>    
+    {{{chatItem}}} 
+</aside>
+<div class="chat">
+    <div class="chat__header">
+    <img class="chat__chat-logo">
+    <p class="chats__chat-name-p">Вадим</p>
+    <a href="/set" class="chat__chat-settings"></a>
     </div>
-  </main>
+    <div class="chat__messages">
+    </div>
+   {{{formChat}}}
+</div>
 `;

@@ -4,6 +4,19 @@ $blue-color: #3369F3;
 $font: 'Inter';
 $main-text-color: #1E1E1E;
 
+@mixin border-radius($radius) {
+  border-radius: $radius;
+}
+
+@mixin button-reset {
+  padding: 0;
+  border: none;
+  font: inherit;
+  color: inherit;
+  background-color: transparent;
+  cursor: pointer;
+}
+
 .profile-form {
   flex: 1;
   width: 510px;
@@ -73,6 +86,10 @@ $main-text-color: #1E1E1E;
     &:focus {
       outline: none;
     }
+
+    &:invalid {
+      border-bottom: 1px solid red
+    }
   }
 
   &__link {
@@ -90,10 +107,22 @@ $main-text-color: #1E1E1E;
   }
 
   &__submit-button {
+    @include button-reset;
+
     display: block;
     margin: 0 auto;
+    background: #F38433;
+    width: 280px;
+    height: 37px;
+    color: #FFF;    
 
-  }
+    @include border-radius(8px);
+    
+    }
+    
+
+  
+    
 
   .list :last-child {
     border-bottom: none;

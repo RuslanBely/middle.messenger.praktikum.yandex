@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "Chat for messaging",
   "scripts": {
-    "stylelint":"npx stylelint \"**/*.scss\"  --fix",
-    "eslint":"npx eslint --fix",    
+    "stylelint": "npx stylelint \"**/*.{scss,css}\"",
+    "eslint": "npx eslint",
     "dev": "parcel ./static/index.html",
     "build": "parcel build ./static/index.html",
     "start": "npm run build && node ./server.js"

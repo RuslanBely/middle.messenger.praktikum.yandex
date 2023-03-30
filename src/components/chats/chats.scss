@@ -1,0 +1,84 @@
+$light: #E5E5E5;
+$base-color: #FFF;
+$blue-color: #3369F3;
+$font: 'Inter';
+$main-text-color: #1E1E1E;
+$hiden-text-color: #999;
+
+@mixin border-radius($radius) {
+  border-radius: $radius;
+}
+
+@mixin button-reset {
+  padding: 0;
+  border: none;
+  font: inherit;
+  color: inherit;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.chats{
+    &__chats-item{
+        height: 70px;
+        border-bottom: 1px solid #EAEAEA;
+        justify-content: space-between;
+        display: flex;
+        align-items: center;
+  
+      }
+  
+     
+      &__chat-logo{
+        width: 47px;
+        height: 47px;
+        border-radius: 50%;
+        margin: auto 10px;
+      }
+  
+      &__chat-name-prev{
+        width: 200px;
+        height: 70px;
+        flex: 1;
+        margin: 10px 0;
+      }
+  
+      &__chat-name-p{
+        margin: 7px 0 5px;
+        display: block;
+        font-size: 13px;
+      }
+  
+      &__chat-prev-p{
+        margin: 5px 0;
+        display: block;
+        font-size: 12px;
+        color: $hiden-text-color;
+      }
+  
+      &__chat-time-count{
+        height: 70px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+      }
+  
+      &__chat-time-p{
+        font-size: 10px;
+        color: $hiden-text-color;
+        margin: 5px;
+      }
+  
+      &__chat-count-p{
+        font-size: 11px;
+        color: $base-color;
+        margin: 5px auto ;
+        border-radius: 50%;
+        background-color: $blue-color;
+        padding: 3px;
+        min-width: 12px;
+        text-align: center;   
+       
+      }
+}

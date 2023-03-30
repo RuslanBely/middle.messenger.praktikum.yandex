@@ -1,12 +1,15 @@
 import { LoginPage } from "./pages/login"
 import { ProfilePage } from "./pages/profile"
-import { chats } from "./pages/chats"
+import { ChatPage } from "./pages/chats"
 import { SigninPage } from "./pages/signin"
 import { ErrPage } from "./pages/errPages"
 
 
 export const app = () =>{
   switch (window.location.pathname) {
+    case '/chats':
+      const chatPage = new ChatPage({})
+     return chatPage;
     case '/login':
       const loginPage = new LoginPage({})
      return loginPage;

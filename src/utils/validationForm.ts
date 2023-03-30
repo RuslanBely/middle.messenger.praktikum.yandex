@@ -53,7 +53,6 @@ export function validation(checkData: Record<string,string>) {
             };
         }
          
-        
     }
     
     return (result)
