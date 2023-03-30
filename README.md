@@ -15,3 +15,5 @@
 - `npm run start` — собирает проект при помощи parcel и раздет его через express. По умолчанию проект запускается на 3000 порту, другой порт пожно установаить через `process.env.PORT`
 - `npm run build` — собирает проект при помощи parcel в папку dist
 - `npm run dev` — собирает проект и запускает локально в runtime при помощи parcel
+- `npm run stylelint` - проверяет проект линтером "stylelint"
+- `npm run eslint` - проверяет проект линтером "eslint"
