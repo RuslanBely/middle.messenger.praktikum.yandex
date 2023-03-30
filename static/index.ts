@@ -1,6 +1,6 @@
 import { app } from "../src/App";
 import { tempMenu } from "../src/components/temp-menu";
-import '../src/style.css';
+import '../src/style.scss';
 const root = document.querySelector('#root');
 
 const page = app()!;
