@@ -2,6 +2,7 @@ import { loginTpl} from './loginTpl'
 import { Block } from "../../utils/block";
 import { Form } from '../../components/forms';
 import "./login.scss"
+import { validProcessing } from '../../utils/validProcessing';
 
 interface LoginProps {}
 
@@ -14,14 +15,17 @@ init() {
   this.children.formAuth = new Form({
     className:'login-signin-form',
     inputs: [
-      { labelVal : 'Логин', name : 'login', type : 'text' },
-      { labelVal : 'Пароль', name : 'password', type : 'password'}
-    ],
-    submButton:{
+      { name : 'login', type : 'text' },
+      { name : 'password', type : 'password'}
+    ],    submButton:{
       label: 'Авторизоваться',
       className: 'login-signin-form__submit-button',
       type: 'submit',
       name: 'enter'
+    },
+    pageTpl:'login',
+    events:{
+      'submit':(event:Event)=>{validProcessing(event)}
     }
   })
 } 

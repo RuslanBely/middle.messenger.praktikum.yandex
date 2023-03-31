@@ -1,6 +1,7 @@
 import { signinTpl } from './signinTpl'
 import { Block } from "../../utils/block";
 import { Form } from '../../components/forms';
+import { validProcessing } from '../../utils/validProcessing';
 import "./signin.scss"
 
 interface SigninProps {}
@@ -14,20 +15,24 @@ init() {
   this.children.formSignin = new Form({
   className:'login-signin-form',
   inputs: [
-      { labelVal : 'Почта', name : 'email', type : 'email'},
-      { labelVal : 'Логин', name : 'login', type : 'text'},
-      { labelVal : 'Имя', name : 'first_name', type : 'text'},
-      { labelVal : 'Фамилия', name : 'second_name', type : 'text'},
-      { labelVal : 'Телефон', name : 'phone', type : 'phone'},
-      { labelVal : 'Пароль', name : 'password', type : 'password'},
-      { labelVal : 'Пароль (ещё раз)', name : 'password2', type : 'password'}
+      { name : 'email', type : 'email'},
+      { name : 'login', type : 'text'},
+      { name : 'first_name', type : 'text'},
+      { name : 'second_name', type : 'text'},
+      { name : 'phone', type : 'phone'},
+      { name : 'password', type : 'password'},
+      { name : 'password2', type : 'password'}
         ],
   submButton:{
     label: 'Зарегистрироваться',
     className: 'login-signin-form__submit-button',
     type: 'submit',
     name: 'Registration'
-            }
+    },
+    pageTpl:'signin',
+    events:{
+      'submit':(event:Event)=>{validProcessing(event)}
+    }
   })
 }
 render()  {

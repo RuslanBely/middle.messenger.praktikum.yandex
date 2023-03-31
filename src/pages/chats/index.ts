@@ -3,6 +3,7 @@ import { chatsTpl } from './chatsTpl'
 import "./chats.scss"
 import { ChatItem } from "../../components/chats";
 import { Form } from "../../components/forms";
+import { validProcessing } from "../../utils/validProcessing";
 
 interface ChatProps {}
 
@@ -21,11 +22,16 @@ init() {
 
   this.children.formChat = new Form({
     className:'chat-form',  
+    inputs:[{ name : 'message', type : 'text', placeholder:"Сообщение"}],
     submButton:{
       label: 'Отправить',
       className: 'chat__submit',
       type: 'submit',
       name: 'sendMassage'
+     },
+     pageTpl:'chats',
+     events:{
+       'submit':(event:Event)=>{validProcessing(event)}
      }
   })
   

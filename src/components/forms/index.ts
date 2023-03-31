@@ -1,20 +1,23 @@
-import { FormTplLogSign } from "./FormTplLS";
+import { FormTplSign } from "./FormTplSign";
+import { FormTplLogin } from "./FormTplLogin";
 import { FormPrTplProf } from "./FormTplProf";
 import { FormTplChats } from "./FormTplLChats";
 import { Block } from "../../utils/block";
 import { Button } from "../buttons";
-import { validation } from "../../utils/validationForm";
+import { Input } from "../inputs";
+import { validProcessing } from "../../utils/validProcessing";
 import "./st_logSign.scss"
 import "./st_profile.scss"
 import "./st_chats.scss"
 
 interface FormProps {
   className: string;
-  inputs?: Object[];
+  inputs: {name:string, type:string, value?:string, placeholder?:string}[];
   inputsPers?: Object[];
   inputsPass?: Object[];  
   submButton: Record<string, string>;
-  Tpl?:string;
+  pageTpl:string;
+  events?:{}
 }
 
 export class Form extends Block<FormProps> {
@@ -29,81 +32,45 @@ export class Form extends Block<FormProps> {
       label: this.props.submButton.label,
       className: this.props.submButton.className,
       type: this.props.submButton.type,
-      name: this.props.submButton.name,
+      name: this.props.submButton.name
     });
 
-    if (this.props.className==="login-signin-form"){
-        this.props.Tpl=FormTplLogSign;
-    } else if (this.props.className==="profile-form") {
-      this.props.Tpl=FormPrTplProf;      
-    } else if (this.props.className==="chat-form") {
-      this.props.Tpl=FormTplChats;
+   
+    this.props.inputs.forEach( el => {
+
+    this.children[el.name] = new Input({
+      className: this.props.className + "__input",
+      id:el.name,
+      type:el.type,
+      name: el.name,
+      value: el.value,
+      placeholder: el.placeholder,
+      events:{
+        'blur':(event:Event)=>{validProcessing(event)},
+        'focus':(event:Event)=>{validProcessing(event)},
+        'input':(event:Event)=>{validProcessing(event)}
+      }
+    });
+
+  })
+
+      if (this.props.pageTpl==="login"){
+        this.props.pageTpl=FormTplLogin;
+    } else if (this.props.pageTpl==="signin") {
+      this.props.pageTpl=FormTplSign;      
+    } else if (this.props.pageTpl==="profile") {
+      this.props.pageTpl=FormPrTplProf;      
+    } else if (this.props.pageTpl==="chats") {
+      this.props.pageTpl=FormTplChats;
     };    
   }
-
   
   render() {
-    return this.compile(this.props.Tpl!, this.props)
+    return this.compile(this.props.pageTpl!, this.props)
     }
 
   componentDidMount(): void {
     console.log("FormMount");
-    this.children.submButton.dispatchComponentDidMoun();
-
-
-    this.element.querySelectorAll("input").forEach((el) => {
-      el.addEventListener("blur", () => {
-        const checkOb: Record<string, string> = {};
-        checkOb[el.name] = el.value;
-        
-        let validResult = validation(checkOb);
-        if (!validResult.isValid && el.dataset.reported === "false") {
-          el.setCustomValidity(validResult.errorList[el.name]);
-          el.dataset.reported="true";
-          el.reportValidity();
-         } 
-         
-         else if (validResult.isValid)  {
-          el.setCustomValidity("");
-        }
-      });
-
-      el.addEventListener("focus", () => {
-        const checkOb: Record<string, string> = {};
-        checkOb[el.name] = el.value;
-
-        let validResult = validation(checkOb);
-        if (!validResult.isValid) {
-          el.setCustomValidity(validResult.errorList[el.name]);
-        }
-      });
-
-      el.addEventListener("input", () => {  
-        if (el.dataset.reported === "true") el.dataset.reported="false"
-            }
-      );
-    });
-
-    
-    const form = this.element as HTMLFormElement;
-
-    form.addEventListener("submit", (SubmEvent) => {
-      SubmEvent.preventDefault();
-
-      const formData = new FormData(form);
-      const dataEntries = formData.entries();
-      const dataFormatted = Object.fromEntries(dataEntries);
-
-      console.log(dataFormatted);
-
-      const validResult = validation(dataFormatted as Record<string, string>);
-      if (!validResult.isValid) {
-        
-        for (let item in validResult.errorList){
-          form[item].setCustomValidity(item.valueOf)
-          form[item].reportValidity();
-        }
-      }
-    });
+           
   }
 }
