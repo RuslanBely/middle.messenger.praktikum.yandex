@@ -62,8 +62,8 @@ export class Block<P extends Record<string,any> = any>{
         });
 
   }
-  private  _removeEvents() {
-        const {events = {}} = this.props as P & {events: Record<string,()=>void>};
+  private  _removeEvents(oldProps:P) {
+        const {events = {}} = oldProps;
         if(!events) return;
           Object.keys(events).forEach(eventName => {
           this._element?.removeEventListener(eventName, events[eventName]);
@@ -107,6 +107,7 @@ export class Block<P extends Record<string,any> = any>{
  private _componentDidUpdate(oldProps: P, newProps: P) {
      const response = this.componentDidUpdate(oldProps, newProps);
     if (response){
+        this._removeEvents(oldProps);
         this.eventBus().emit(Block.EVENTS.FLOW_RENDER);
     }
   }
@@ -131,8 +132,6 @@ export class Block<P extends Record<string,any> = any>{
   
   private _render() {
     const fragment =this.render();
-
-    this._removeEvents();
 
     this._element!.innerHTML = '';
     this._element!.append(fragment);
