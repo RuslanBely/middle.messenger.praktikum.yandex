@@ -1,10 +1,10 @@
 $light: #E5E5E5;
-$base-color: #FFFFFF;
+$base-color: #FFF;
 $blue-color: #3369F3;
 $font: 'Inter';
 $main-text-color: #1E1E1E;
 
-.p500 {
+.p-err {
   background-color: $base-color;
   display: flex;
   flex-direction: column;

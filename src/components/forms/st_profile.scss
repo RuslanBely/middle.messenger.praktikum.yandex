@@ -1,0 +1,130 @@
+$light: #E5E5E5;
+$base-color: #FFF;
+$blue-color: #3369F3;
+$font: 'Inter';
+$main-text-color: #1E1E1E;
+
+@mixin border-radius($radius) {
+  border-radius: $radius;
+}
+
+@mixin button-reset {
+  padding: 0;
+  border: none;
+  font: inherit;
+  color: inherit;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.profile-form {
+  flex: 1;
+  width: 510px;
+
+  &__h1 {
+    margin: 20px auto 50px;
+    font-family: $font;
+    font-size: 20px;
+    font-style: normal;
+    line-height: 20px;
+    text-align: center;
+
+  }
+
+  &__ava-input {
+    border-radius: 50%;
+    width: 130px;
+    text-align: center;
+
+    &:hover {
+      background: #000;
+      opacity: 0.5;
+      position: relative;
+    }
+  }
+
+  &__ava-container {
+    margin: 60px auto 20px;
+    border-radius: 50%;
+    width: 130px;
+    height: 130px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &:hover {
+      background: #000;
+      opacity: 0.5;
+      position: relative;
+    }
+  }
+
+  &__change-pass {
+    margin: 60 auto;
+    display: none;
+  }
+
+  &__input-container {
+    border-bottom: 1px solid #EAEAEA;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 33px;
+  }
+
+  &__label {
+    font-size: 13px;
+    color: #1E1E1E;
+
+  }
+
+  &__input {
+    border: none;
+    text-align: right;
+    color: #999;
+
+    &:focus {
+      outline: none;
+    }
+
+    &:invalid {
+      border-bottom: 1px solid red
+    }
+  }
+
+  &__link {
+    margin: 60px auto;
+
+    a {
+      color: $blue-color;
+      text-decoration: none;
+      font-size: 13px;
+    }
+  }
+
+  &__buttons {
+    width: 510px;
+  }
+
+  &__submit-button {
+    @include button-reset;
+
+    display: block;
+    margin: 0 auto;
+    background: #F38433;
+    width: 280px;
+    height: 37px;
+    color: #FFF;    
+
+    @include border-radius(8px);
+    
+    }
+    
+
+  
+    
+
+  .list :last-child {
+    border-bottom: none;
+  }
+}

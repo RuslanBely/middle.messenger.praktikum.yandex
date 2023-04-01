@@ -1,0 +1,34 @@
+$light: #E5E5E5;
+$base-color: #FFF;
+$blue-color: #3369F3;
+$font: 'Inter';
+$main-text-color: #1E1E1E;
+$width-form: 280px;
+
+@mixin border-radius($radius) {
+  border-radius: $radius;
+}
+
+@mixin button-reset {
+  padding: 0;
+  border: none;
+  font: inherit;
+  color: inherit;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.login-signin-form__submit-button {
+@include button-reset;
+
+background: #F38433;
+width: $width-form;
+height: 37px;
+color: #FFF;
+
+@include border-radius(8px);
+}
+
+span {
+  color: #FFF;
+}

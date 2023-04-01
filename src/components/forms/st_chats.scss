@@ -1,0 +1,18 @@
+.chat-form {
+    display: flex;
+    justify-content: center;
+    height: max-content;
+
+    &__input-container {
+      flex: 1
+    }
+
+    &__input {
+      width: 100%;
+
+      &:focus {
+        outline: none;
+      }
+    }
+
+  }
