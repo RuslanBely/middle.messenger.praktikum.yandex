@@ -1,6 +1,7 @@
 import { EventBus } from "./eventBus";
 import {nanoid} from 'nanoid';
 import Handlebars from "handlebars";
+import { isEqual } from "./helpers";
 
 export class Block<P extends Record<string,any> = any>{
     static EVENTS = {
@@ -22,7 +23,7 @@ export class Block<P extends Record<string,any> = any>{
      * @param {Object} props
      * @returns {void}
      */
-  constructor(tagName = "div", propsWithChildren:P) {
+  constructor(propsWithChildren:P, tagName = "div") {
     const eventBus = new EventBus();
     const {props,children}= this._getChildrenAndProps(propsWithChildren);
     this._meta = {
@@ -38,6 +39,8 @@ export class Block<P extends Record<string,any> = any>{
   
     this._registerEvents(eventBus);
     eventBus.emit(Block.EVENTS.INIT);
+
+   
   }
 
   _getChildrenAndProps(ChildrenAndProps: P):{props: P, children: Record<string,Block>}{
@@ -80,7 +83,7 @@ export class Block<P extends Record<string,any> = any>{
     eventBus.on(Block.EVENTS.FLOW_RENDER, this._render.bind(this));
   }
   
- private _createResources() {
+   private _createResources() {
     const { tagName } = this._meta;
     this._element = this._createDocumentElement(tagName);
   }
@@ -111,11 +114,11 @@ export class Block<P extends Record<string,any> = any>{
         this.eventBus().emit(Block.EVENTS.FLOW_RENDER);
     }
   }
-  
 
-  // @ts-ignore Сравнение опишем в следующих спринтах
+ 
  protected componentDidUpdate(oldProps: P, newProps: P) {
-    return true;
+    
+    return   (!isEqual(oldProps,newProps));
   }
   
   setProps = (nextProps : unknown) => {
@@ -129,6 +132,8 @@ export class Block<P extends Record<string,any> = any>{
   get element() {
     return this._element as HTMLElement;
   }
+
+  
   
   private _render() {
     const fragment =this.render();
@@ -138,33 +143,34 @@ export class Block<P extends Record<string,any> = any>{
     
     this._addEvents();
   }
-protected compile(template: string, context: any) {
-  const contextAndStubs = {...context};
 
-  Object.entries(this.children).forEach(([name, component]) => {
-    contextAndStubs[name] = `<div data-id="${component.id}"></div>`
-  });
+  protected compile(template: string, context: any) {
+    const contextAndStubs = {...context};
 
-  const tpl = Handlebars.compile(template);
+    Object.entries(this.children).forEach(([name, component]) => {
+      contextAndStubs[name] = `<div data-id="${component.id}"></div>`
+    });
 
-  const html = tpl(contextAndStubs);
-  const temp = document.createElement('template');
+    const tpl = Handlebars.compile(template);
 
-  temp.innerHTML=html;
+    const html = tpl(contextAndStubs);
+    const temp = document.createElement('template');
 
-  Object.entries(this.children).forEach(([_, component]) => {
-    const stub = temp.content.querySelector(`[data-id="${component.id}"]`)
+    temp.innerHTML=html;
 
-    if (!stub){
-      return;
-    }
+    Object.entries(this.children).forEach(([_, component]) => {
+      const stub = temp.content.querySelector(`[data-id="${component.id}"]`)
 
-    component.getContent()?.append(...Array.from(stub.childNodes));
-    stub.replaceWith(component.getContent()!);
-  });
+      if (!stub){
+        return;
+      }
 
-  return temp.content;
-}
+      component.getContent()?.append(...Array.from(stub.childNodes));
+      stub.replaceWith(component.getContent()!);
+    });
+
+    return temp.content;
+  }
   
  protected render(): DocumentFragment {
   return new DocumentFragment();
@@ -173,7 +179,19 @@ protected compile(template: string, context: any) {
   getContent() {
     return this.element;
   }
-  
+
+  public remove(){
+    this.getContent()!.remove()
+  }
+
+  public hide(){
+    this.getContent()!.style.display = "none";
+  }
+
+  public show() {
+    this.getContent()!.style.display = "block";
+  }
+
  private _makePropsProxy(props: any) {
     const self = this;
       
@@ -200,5 +218,9 @@ protected compile(template: string, context: any) {
     return document.createElement(tagName);
   }
   
-  
+    
 }
+
+
+
+

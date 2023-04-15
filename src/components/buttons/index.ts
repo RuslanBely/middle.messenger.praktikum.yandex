@@ -6,7 +6,7 @@ interface ButtonProps{
   label: string;
   className?:string;
   type?:string;
-  name:string;
+  name?:string;
   events?: {
     click: ()=> void;
   }
@@ -14,7 +14,7 @@ interface ButtonProps{
 
 export class Button extends Block<ButtonProps>{
   constructor(props: ButtonProps){
-    super('button', props)
+    super(props, 'button')
   }
 
   init() {

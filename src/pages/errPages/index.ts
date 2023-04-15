@@ -9,7 +9,7 @@ interface ErrPageProps{
 
 export class ErrPage extends Block<ErrPageProps>{
   constructor(props: ErrPageProps) {
-    super ('div', props)
+    super (props, 'div')
   }
 
    render() {

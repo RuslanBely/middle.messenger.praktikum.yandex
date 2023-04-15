@@ -18,7 +18,11 @@ $width-form: 280px;
   cursor: pointer;
 }
 
-.login-signin-form__submit-button {
+button {
+  @include button-reset;
+}
+
+.login-signin-form__submit-button{
 @include button-reset;
 
 background: #F38433;
@@ -28,6 +32,19 @@ color: #FFF;
 
 @include border-radius(8px);
 }
+
+.modal__submit-button{
+@include button-reset;
+
+background: #F38433;
+width: $width-form;
+height: 37px;
+color: #FFF;
+
+@include border-radius(8px);
+}
+
+
 
 span {
   color: #FFF;

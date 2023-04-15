@@ -61,7 +61,6 @@ $main-text-color: #1E1E1E;
 
   &__change-pass {
     margin: 60 auto;
-    display: none;
   }
 
   &__input-container {
@@ -109,8 +108,8 @@ $main-text-color: #1E1E1E;
   &__submit-button {
     @include button-reset;
 
-    display: block;
-    margin: 0 auto;
+    display: none;
+    margin: 20px auto;
     background: #F38433;
     width: 280px;
     height: 37px;

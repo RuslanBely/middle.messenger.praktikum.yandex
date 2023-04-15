@@ -10,7 +10,7 @@ export function validProcessing (event:Event){
         const checkOb: Record<string, string> = {};
             checkOb[input.name] = input.value;
             
-            let validResult = validation(checkOb);
+            let validResult = validation(checkOb,event);
             if (!validResult.isValid && input.dataset.reported === "false") {
                 input.setCustomValidity(validResult.errorList[input.name]);
                 input.dataset.reported="true";
@@ -28,7 +28,7 @@ export function validProcessing (event:Event){
         const checkOb: Record<string, string> = {};
         checkOb[input.name] = input.value;
 
-        let validResult = validation(checkOb);
+        let validResult = validation(checkOb,event);
         if (!validResult.isValid) {
             input.setCustomValidity(validResult.errorList[input.name]);
         }
@@ -46,7 +46,7 @@ export function validProcessing (event:Event){
         const dataEntries = formData.entries();
         const dataFormatted = Object.fromEntries(dataEntries);
 
-        const validResult = validation(dataFormatted as Record<string, string>);
+        const validResult = validation(dataFormatted as Record<string, string>,event);
         if (!validResult.isValid) {
             
             for (let item in validResult.errorList){
@@ -54,7 +54,10 @@ export function validProcessing (event:Event){
             form[item].reportValidity();
             }
       }
-        else{console.log(dataFormatted)}
+        else{
+            console.log(dataFormatted)
+            return dataFormatted as Record<string,any>
+        }
     }
 }
 

@@ -1,0 +1,61 @@
+$light: #E5E5E5;
+$base-color: #FFF;
+$blue-color: #3369F3;
+$font: 'Inter';
+$main-text-color: #1E1E1E;
+$width-form: 280px;
+$empty-avatar: #efefef;
+$hover-avatar: rgb(0 0 0 / 50%);
+
+.profile-avatar {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: none;
+
+    &__text {
+      position: absolute;
+      display: none;
+      color: $light;
+      font-size: 13px;
+      line-height: 14px;
+    }
+
+    &__image {
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+    }
+}
+
+.profile-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 510px;
+
+  &__avatar {
+    display: flex;
+    align-items: center;
+    align-self: center;
+    justify-content: center;
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    background-color: $empty-avatar;
+
+    &:hover {
+      background-color: $hover-avatar;
+   
+
+      .profile-avatar {
+        &__text {
+          display: block;
+          max-width: 64px;
+        }
+      }
+    }
+  }
+}
+

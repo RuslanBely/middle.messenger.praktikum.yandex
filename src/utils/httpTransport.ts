@@ -1,77 +1,92 @@
-
-function queryStringify(data: Record<string,any>) {
-   return "?" + Object.entries(data).map(([key, val]) => `${key}=${val}`).join('&');
-}
-
-enum METHODS {
-    GET = 'GET',
-    POST = 'POST',
-    PUT = 'PUT',
-    DELETE = 'DELETE'
-} 
-
-type tOptions = {
-    method?: METHODS;
-    headers?: Record<string, string>;
-    timeout?: number;
-    data?: Record<string,any>;
-};
-
-
-export class HTTPTransport {
-
-     
-    url:string;
-    
-       
-    public get = (url:string, options = {}) => {
-				 
-        return this.request(url, {...options, method: METHODS.GET});
-        };
-
-    public POST = (url:string, options = {}) => {
-			 
-        return this.request(url, {...options, method: METHODS.POST, data: {}});
-        };
-    
-    public PUT = (url:string, options = {}) => {
-			 
-        return this.request(url, {...options, method: METHODS.PUT, data: {}});
-        };
-    
-    public  DELETE = (url:string, options = {}) => {
-			 
-        return this.request(url, {...options, method: METHODS.DELETE, data: {}});
-        };
-    
+export enum Method {
+    Get = 'Get',
+    Post = 'Post',
+    Put = 'Put',
+    Patch = 'Patch',
+    Delete = 'Delete'
+  }
   
-    private request = (url:string, options:tOptions) => {
-             
-
-        return new Promise((resolve, reject) => {
-            const xhr = new XMLHttpRequest();
-            if (options.method === "GET" && typeof (options.data) !== 'undefined'){
-            const fullUrl = url + queryStringify(options.data)
-            xhr.open(options.method, fullUrl);
-            } else {
-            xhr.open(options.method!, url);   
-            }
-
-            xhr.onload = function() {
-                resolve(xhr);
-                };
-        
-        
-            xhr.onabort = reject;
-            xhr.onerror = reject;
-            xhr.ontimeout = reject;
-            
-            if (options.method === "GET") {
-              xhr.send();
-            } else {
-              xhr.send(options.data as Document | XMLHttpRequestBodyInit);
-            }
-        });
-            
+  type Options = {
+    method: Method;
+    data?: any;
+  };
+  
+  export default class HTTPTransport {
+    static API_URL = 'https://ya-praktikum.tech/api/v2';
+    protected endpoint: string;
+  
+    constructor(endpoint: string) {
+      this.endpoint = `${HTTPTransport.API_URL}${endpoint}`;
     }
-}
+  
+    public get<Response>(path = '/'): Promise<Response> {
+      return this.request<Response>(this.endpoint + path);
+    }
+  
+    public post<Response = void>(path: string, data?: unknown): Promise<Response> {
+      return this.request<Response>(this.endpoint + path, {
+        method: Method.Post,
+        data,
+      });
+    }
+  
+    public put<Response = void>(path: string, data: unknown): Promise<Response> {
+      return this.request<Response>(this.endpoint + path, {
+        method: Method.Put,
+        data,
+      });
+    }
+  
+    public patch<Response = void>(path: string, data: unknown): Promise<Response> {
+      return this.request<Response>(this.endpoint + path, {
+        method: Method.Patch,
+        data,
+      });
+    }
+  
+    public delete<Response>(path: string): Promise<Response> {
+      return this.request<Response>(this.endpoint + path, {
+        method: Method.Delete,
+      });
+    }
+  
+    private request<Response>(url: string, options: Options = {method: Method.Get}): Promise<Response> {
+      const {method, data} = options;
+  
+      return new Promise((resolve, reject) => {
+        const xhr = new XMLHttpRequest();
+        xhr.open(method, url);
+  
+        xhr.onreadystatechange = (e) => {
+  
+          if (xhr.readyState === XMLHttpRequest.DONE) {
+            if (xhr.status < 400) {
+              resolve(xhr.response);
+            } else {
+              reject(xhr.response);
+            }
+          }
+        };
+  
+        xhr.onabort = () => reject({reason: 'abort'});
+        xhr.onerror = () => reject({reason: 'network error'});
+        xhr.ontimeout = () => reject({reason: 'timeout'});
+        
+        if (!(data instanceof FormData)) {
+        xhr.setRequestHeader('Content-Type', 'application/json');
+        }
+
+  
+        xhr.withCredentials = true;
+        xhr.responseType = 'json';
+  
+        if (method === Method.Get || !data) {
+          xhr.send();
+        } else if (data instanceof FormData) {
+          xhr.send(data);
+        }else {
+          xhr.send(JSON.stringify(data));
+        }
+      });
+    }
+  }

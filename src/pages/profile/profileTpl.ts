@@ -1,8 +1,11 @@
 export const profileTpl =`
 <div class="wrapper">
-  <aside class="backspace"><a href=""><img src="{{arrowImg}}" alt=""></a></aside>
+  <aside class="backspace">{{{chatsleLink}}}</aside>
   <div class="profile">
+    {{{avatar}}}
     {{{formProfile}}}
+    {{{formProfilePass}}}
   </div>
+  {{{modalAvatar}}}
 </div>
 `;

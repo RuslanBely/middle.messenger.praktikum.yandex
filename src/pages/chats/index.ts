@@ -1,15 +1,18 @@
 import { Block } from "../../utils/block";
 import { chatsTpl } from './chatsTpl'
+import { Link } from "../../components/links";
+import  router  from "../../utils/router";
 import "./chats.scss"
 import { ChatItem } from "../../components/chats";
 import { Form } from "../../components/forms";
 import { validProcessing } from "../../utils/validProcessing";
+import authController from "../../controllers/AuthController";
 
 interface ChatProps {}
 
 export class ChatPage extends Block<ChatProps>{
   constructor(props: ChatProps){
-    super('div',props)
+    super(props, 'div')
   }
 
 init() {
@@ -33,7 +36,32 @@ init() {
      events:{
        'submit':(event:Event)=>{validProcessing(event)}
      }
-  })
+  });
+
+  this.children.profileLink = new Link ({
+    label: 'Профиль >',
+    className: "chats__profile",
+    href:'/settings',
+    events: {
+      click: (Event:Event) => {
+        Event.preventDefault(); 
+        const link = Event.target as HTMLAnchorElement
+        router.go(link.pathname)
+      }
+    }
+  });
+
+  this.children.logoutlink = new Link ({
+    label: 'Выйти',
+    className: "chats__logout",
+    href:'',
+    events: {
+      click: (Event:Event) => {
+        Event.preventDefault(); 
+        authController.logout();
+      }
+    }
+  });
   
 }
 

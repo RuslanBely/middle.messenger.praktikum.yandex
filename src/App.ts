@@ -1,7 +1,7 @@
 import { LoginPage } from "./pages/login"
 import { ProfilePage } from "./pages/profile"
 import { ChatPage } from "./pages/chats"
-import { SigninPage } from "./pages/signin"
+import { SigninPage } from "./pages/signup"
 import { ErrPage } from "./pages/errPages"
 
 

@@ -1,4 +1,4 @@
-export function validation(checkData: Record<string,string>) {
+export function validation(checkData: Record<string,string>, event?:Event) {
 
     interface Iresult{
         isValid: boolean;
@@ -9,7 +9,6 @@ export function validation(checkData: Record<string,string>) {
         errorList:{}
     }
     
-   
     for (let item in checkData) {               
         if (item === 'login'){
             if (!/^(?=[^A-Za-z]*[A-Za-z])[a-zA-Z\-\_0-9]{3,20}$/.test(checkData[item])){
@@ -17,11 +16,19 @@ export function validation(checkData: Record<string,string>) {
                 result.errorList[item]= `${item} не соответсвует требованиям: От 3 до 20 символов, латиница, может содержать цифры, но не состоять из них, без пробелов, без спецсимволов (допустимы дефис и нижнее подчёркивание)`;   
             };
 
-        }else if (item === 'password' || item === 'password2') {
+        }else if (item === 'password' || item === 'password2' || item === 'oldPassword' || item === 'newPassword') {
 
             if (!/^(?=[^A-ZА-Я]*[A-ZА-Я])(?=\D*\d).{8,40}$/.test(checkData[item])){
                 result.isValid = false;
                 result.errorList[item]= `${item} не соответсвует требованиям: От 8 до 40 символов, обязательно хотя бы одна заглавная буква и цифра`;   
+            };
+        }else if (item === 'newPassword2' && event!.type=='blur') {
+            const target=event!.target as HTMLInputElement
+            let prevPassInput=target!.parentElement!.previousElementSibling!.children[1]  as HTMLInputElement
+                     
+            if ( prevPassInput.value !== checkData[item]){
+                result.isValid = false;
+                result.errorList[item]= `Новые пароли не совпадают`;   
             };
 
         }else if (item === 'first_name' || item ==='second_name'){
