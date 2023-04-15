@@ -1,5 +1,3 @@
-import { app } from "../src/App";
-import { tempMenu } from "../src/components/temp-menu";
 import  router  from "../src/utils/router";
 import { LoginPage } from "../src/pages/login";
 import { ChatPage } from "../src/pages/chats";
@@ -9,8 +7,6 @@ import { ErrPage } from "../src/pages/errPages";
 import authController from "../src/controllers/AuthController";
 import "./style.scss"
 
-
-//const root = document.querySelector('#root');
 
 /*Временное меню для навигации*/
 //root!.insertAdjacentHTML("beforebegin",tempMenu())
