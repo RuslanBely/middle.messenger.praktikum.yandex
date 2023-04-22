@@ -1,4 +1,4 @@
-export const  FormTplSign =`
+export const FormTplSign = `
 <label class="{{className}}__label" for="email">Почта</label>
 {{{email}}}
 <label class="{{className}}__label" for="login">Логин</label>

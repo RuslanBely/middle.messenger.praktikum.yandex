@@ -1,4 +1,4 @@
-export const  FormPrTplProfPass =`
+export const FormPrTplProfPass = `
 
 <div class="list profile-form__change-pass">
   

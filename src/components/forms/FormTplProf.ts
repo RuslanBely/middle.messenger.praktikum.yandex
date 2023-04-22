@@ -1,4 +1,4 @@
-export const  FormPrTplProf =`
+export const FormPrTplProf = `
 <h1 class="profile-form__h1">{{user.first_name}}</h1>
 
 <div class="list profile-form__list list">

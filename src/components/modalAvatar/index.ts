@@ -1,13 +1,13 @@
-import { ModalAvatarTpl } from "./ModalAvatarTpl";
-import { Block } from "../../utils/block";
-import { FormModal } from "../modalForm";
-import './modalAvatar.scss'
+import { ModalAvatarTpl } from './ModalAvatarTpl';
+import { Block } from '../../utils/block';
+import { FormModal } from '../modalForm';
+import './modalAvatar.scss';
 
 interface ModalAvatarProps{
   className?:string;
   type?:string;
   events?: {
-    click: (e: Event) => void;       
+    click: (e: Event) => void;
   },
   title: string;
   fileName: string;
@@ -16,16 +16,14 @@ interface ModalAvatarProps{
   onChange: (e: Event) => void;
 }
 
-export class ModalAvatar  extends Block<ModalAvatarProps>{
-  constructor(props: ModalAvatarProps){
-    super(props)
+export class ModalAvatar extends Block<ModalAvatarProps> {
+  constructor(props: ModalAvatarProps) {
+    super(props);
   }
 
   init() {
-
-    console.log(this.props)
     this.children.form = new FormModal({
-      className:'modal-form',
+      className: 'modal-form',
       fileName: this.props.fileName,
       onChange: this.props.onChange,
       events: {
@@ -38,9 +36,7 @@ export class ModalAvatar  extends Block<ModalAvatarProps>{
     (this.children.form as FormModal).setProps({ fileName });
   }
 
-
-  render()  {
+  render() {
     return this.compile(ModalAvatarTpl, this.props);
   }
-
-};
+}

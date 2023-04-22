@@ -1,10 +1,11 @@
-export const profileTpl =`
+export const profileTpl = `
 <div class="wrapper">
   <aside class="backspace"><a href=""><img src="{{arrowImg}}" alt=""></a></aside>
   <div class="profile">
     <form class="profile-form" action="">
       <div class="profile-form__ava-container">
-        <input class="profile-form__ava-input" id="avatar" type="image" src="{{avatartImg}}" alt="Аватар" name="avatar">
+        <input class="profile-form__ava-input" id="avatar" type="image" 
+        src="{{avatartImg}}" alt="Аватар" name="avatar">
       </div>
       <h1 class="profile-form__h1">{{inputsPers.[2].[value]}}</h1>
       <div class="list profile-form__list list">
@@ -12,7 +13,8 @@ export const profileTpl =`
         {{#each inputsPers}}
         <div class="profile-form__input-container">
           <label class="profile-form__label" for="{{name}}">{{labelVal}}</label>
-          <input class="profile-form__input" id="{{name}}" type="{{type}}" name="{{name}}" value="{{value}}">
+          <input class="profile-form__input" id="{{name}}" 
+          type="{{type}}" name="{{name}}" value="{{value}}">
         </div>
         {{/each}}
 
@@ -22,7 +24,8 @@ export const profileTpl =`
         {{#each inputsPass}}
         <div class="profile-form__input-container">
           <label class="profile-form__label" for="{{name}}">{{labelVal}}</label>
-          <input class="profile-form__input" id="{{name}}" type="{{type}}" name="{{name}}" value="{{value}}">
+          <input class="profile-form__input" id="{{name}}" type="{{type}}" 
+          name="{{name}}" value="{{value}}">
         </div>
         {{/each}}
       </div>

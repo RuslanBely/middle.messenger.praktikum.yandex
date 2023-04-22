@@ -9,10 +9,7 @@ $hover-avatar: rgb(0 0 0 / 50%);
 
 .modal {
   position: fixed;  
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
+  inset: 0;
   background: rgb(0 0 0 / 50%);
   z-index: 1050;
   opacity: 0;

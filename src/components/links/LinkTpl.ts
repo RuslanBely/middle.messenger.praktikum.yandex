@@ -1,4 +1,4 @@
-export const  LinkTpl =`
+export const LinkTpl = `
 {{#if srcImg}}
 <img src="{{srcImg}}" alt="">
 {{^}}

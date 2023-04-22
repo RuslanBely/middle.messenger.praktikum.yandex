@@ -1,1 +1,1 @@
-export const  InputTpl =``;
+export const InputTpl = '';

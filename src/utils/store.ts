@@ -1,12 +1,13 @@
-import {Block} from './Block';
+import { Block } from './Block';
 import { EventBus } from './EventBus';
 import { set } from './helpers';
+import { InChatsData, InChatsUsers } from '../api/ChatsApi';
 
 export enum StoreEvents {
   Updated = 'Updated',
 }
 
-export type State = {
+export interface State {
   user: {
     id: number;
     first_name: string;
@@ -16,12 +17,23 @@ export type State = {
     email: string;
     phone: string;
     avatar: string;
-  }
+  },
+   chats: InChatsData[],
+   selectedChatID:number,
+   chatUsers: InChatsUsers[],
+   searchedUsers: InChatsUsers[],
+   token:string
+   messages:{ chat_id: number;
+    time: string;
+    type: string;
+    user_id: string;
+    content: string;}[]|[],
 }
 
-
 class Store extends EventBus {
-  private state = {} as State;
+  private state = {
+    messages: [],
+  } as State;
 
   public set(keypath: string, value: unknown) {
     set(this.state, keypath, value);
@@ -36,21 +48,16 @@ class Store extends EventBus {
 
 const store = new Store();
 
-export const withStore = (mapStateToProps: (state: State) => any) => {
-  return (Component: typeof Block) => {
-    return class WithStore extends Component {
-      constructor(props: any) {
-     
-        const mappedState = mapStateToProps(store.getState());
-        super({ ...props, ...mappedState });
-  
-        store.on(StoreEvents.Updated, (newState) => {
-          const newMappedState = mapStateToProps(newState);
-          this.setProps(newMappedState);
-        });
-      }
-    }
+export const withStore = (mapStateToProps: (state: State) => any) => (Component: typeof Block) => class WithStore extends Component {
+  constructor(props: any) {
+    const mappedState = mapStateToProps(store.getState());
+    super({ ...props, ...mappedState });
+
+    store.on(StoreEvents.Updated, (newState) => {
+      const newMappedState = mapStateToProps(newState);
+      this.setProps(newMappedState);
+    });
   }
-}
+};
 
 export { store };

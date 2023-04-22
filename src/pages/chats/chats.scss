@@ -33,7 +33,6 @@ $hiden-text-color: #999;
     align-items: center;
 
     &__search-frofile{
-      height: 80px;
       width: 310px;
       margin: 0 auto;
      
@@ -51,6 +50,10 @@ $hiden-text-color: #999;
       height: 40px;
       margin: 0 auto;
       border-bottom: 1px solid #EAEAEA;
+    }
+
+    &__create{
+      padding: 5px;
     }
 
     &__search-input{
@@ -90,6 +93,7 @@ $hiden-text-color: #999;
 
     &__header{
       display: flex;
+      position: relative;
       align-items: center;
       padding: 7px;
       border-bottom: 1px solid #eaeaea

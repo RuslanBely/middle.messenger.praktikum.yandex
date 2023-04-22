@@ -1,0 +1,46 @@
+$light: #E5E5E5;
+$base-color: #FFF;
+$blue-color: #3369F3;
+$font: 'Inter';
+$main-text-color: #1E1E1E;
+$hiden-text-color: #999;
+
+
+.chat {
+  &-modal {
+    position: absolute;
+    right: 0;
+    bottom: -100px;
+    width: 210px;
+    height: 90px;
+    padding: 10px 15px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 200ms ease-in;
+    background: $base-color;
+    box-shadow: 0 0 6px rgb(0 0 0 / 14%);
+    border-radius: 12px;
+    flex-direction: column;
+    justify-content: flex-start;
+    display: flex;
+    z-index: 1050;
+
+    &--open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    &__a {
+      color: $blue-color;
+      font-weight: 500;
+      font-size: 12px;
+      line-height: 14px;
+      padding: 5px 0;
+
+      &--red {
+        color: #f00;
+        border-top: 1px solid $light;
+      }
+    }
+  }
+}
