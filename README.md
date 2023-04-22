@@ -17,3 +17,5 @@
 - `npm run dev` — собирает проект и запускает локально в runtime при помощи parcel
 - `npm run stylelint` - проверяет проект линтером "stylelint"
 - `npm run eslint` - проверяет проект линтером "eslint"
+
+В проекте используется REST сервис API Yandex https://ya-praktikum.tech/api/v2/swagger и Websockets https://ya-praktikum.tech/api/v2/openapi/ws
