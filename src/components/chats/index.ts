@@ -1,31 +1,23 @@
-import { ChatItemTpl } from "./ChatItemTpl";
-import { Block } from "../../utils/block";
-import "./chats.scss"
+import { ChatItemTpl } from './ChatItemTpl';
+import { Block } from '../../utils/block';
+import './chats.scss';
 
-interface ChatItemProps {
-  chats: {
-    name: string;
-    prev: string;
-    time: string;
-    messageCount: number; 
-  }[];
-
-}
+interface ChatItemProps {}
 
 export class ChatItem extends Block<ChatItemProps> {
   constructor(props: ChatItemProps) {
-    super("div", props);
+    super(props, 'div');
   }
 
   init() {
     this.element.classList.add('chats__chats-wrpper');
   }
-  
+
   render() {
-    return this.compile(ChatItemTpl, this.props)
-    }
+    return this.compile(ChatItemTpl, this.props);
+  }
 
   componentDidMount(): void {
-    console.log("ChatItemsMount");    
+    console.log('ChatItemsMount');
   }
 }

@@ -1,29 +1,29 @@
 import { ButtonTpl } from './ButtonTpl';
-import { Block } from "../../utils/block";
-import "./button.scss";
+import { Block } from '../../utils/block';
+import './button.scss';
+import { Image } from '../image';
 
 interface ButtonProps{
-  label: string;
+  label?: string
   className?:string;
   type?:string;
-  name:string;
+  name?:string;
+  value?:Image
   events?: {
-    click: ()=> void;
+    click: (e?:Event)=> void;
   }
 }
 
-export class Button extends Block<ButtonProps>{
-  constructor(props: ButtonProps){
-    super('button', props)
+export class Button extends Block<ButtonProps> {
+  constructor(props: ButtonProps) {
+    super(props, 'button');
   }
 
   init() {
-    if(this.props.className) 
-      this.element.classList.add(this.props.className);
+    if (this.props.className) { this.element.classList.add(this.props.className); }
   }
 
-
-  render()  {
+  render() {
     return this.compile(ButtonTpl, this.props);
   }
-};
+}

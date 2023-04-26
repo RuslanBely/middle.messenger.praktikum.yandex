@@ -1,1 +1,1 @@
-export const  ButtonTpl =`{{label}}`;
+export const ButtonTpl = '{{label}}{{#if value}}{{value}}{{/if}}';

@@ -1,21 +1,20 @@
-export const chatsTpl =`<div class="wrapper">
-<aside class="chats">
-    <div class="chats__search-frofile">
-        <a class="chats__profile" href="/profile">Профиль ></a>
-        <div class="chats__search">
-            <input class="chats__search-input" type="text" placeholder="Поиск">
+export const chatsTpl = `
+<div class="wrapper">
+    <aside class="chats">
+        <div class="chats__search-frofile">       
+            {{{profileLink}}}
+            {{{createChatlink}}}
+            <div class="chats__search">
+                <input class="chats__search-input" type="text" placeholder="Поиск">
+            </div>
         </div>
-    </div>    
-    {{{chatItem}}} 
-</aside>
-<div class="chat">
-    <div class="chat__header">
-    <img class="chat__chat-logo">
-    <p class="chats__chat-name-p">Вадим</p>
-    <a href="/set" class="chat__chat-settings"></a>
+        {{{chats}}}
+    </aside>
+    <div class="chat">
+        {{{messenger}}} 
+        {{{modalSettingChat}}}
     </div>
-    <div class="chat__messages">
-    </div>
-   {{{formChat}}}
 </div>
+{{{addChatModal}}}
+{{{userListChatModal}}}
 `;
