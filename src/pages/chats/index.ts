@@ -1,4 +1,4 @@
-import { Block } from '../../utils/block';
+import { Block } from '../../utils/Block';
 import { chatsTpl } from './chatsTpl';
 import { Link } from '../../components/links';
 import router from '../../utils/router';

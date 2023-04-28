@@ -1,4 +1,4 @@
-import { Block } from '../../utils/block';
+import { Block } from '../../utils/Block';
 import { ImageTpl } from './ImageTpl';
 
 interface ImageProps{

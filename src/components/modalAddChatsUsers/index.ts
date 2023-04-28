@@ -1,4 +1,4 @@
-import { Block } from '../../utils/block';
+import { Block } from '../../utils/Block';
 import UserController from '../../controllers/UserController';
 import { store, withStore } from '../../utils/store';
 import { ChatUser } from '../chatUser';

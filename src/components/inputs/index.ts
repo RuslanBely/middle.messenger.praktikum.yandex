@@ -1,5 +1,5 @@
 import { InputTpl } from './InputTpl';
-import { Block } from '../../utils/block';
+import { Block } from '../../utils/Block';
 import { withStore, State } from '../../utils/store';
 
 interface InputProps {

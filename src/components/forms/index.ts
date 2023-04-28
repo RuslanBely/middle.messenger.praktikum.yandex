@@ -3,7 +3,7 @@ import { FormTplLogin } from './FormTplLogin';
 import { FormPrTplProf } from './FormTplProf';
 import { FormTplChats } from './FormTplLChats';
 import { FormPrTplProfPass } from './FormTplProfPass';
-import { Block } from '../../utils/block';
+import { Block } from '../../utils/Block';
 import { Button } from '../buttons';
 import { Input } from '../inputs';
 import { validProcessing } from '../../utils/validProcessing';

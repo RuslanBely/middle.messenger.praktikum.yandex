@@ -1,5 +1,5 @@
 import { ModalAvatarTpl } from './ModalAvatarTpl';
-import { Block } from '../../utils/block';
+import { Block } from '../../utils/Block';
 import { FormModal } from '../modalForm';
 import './modalAvatar.scss';
 

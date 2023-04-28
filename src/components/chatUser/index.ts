@@ -1,5 +1,5 @@
 import chatsController from '../../controllers/ChatsController';
-import { Block } from '../../utils/block';
+import { Block } from '../../utils/Block';
 import { Button } from '../buttons';
 import { Image } from '../image';
 import admLogo from '../../static/img/admin-icon.png';
