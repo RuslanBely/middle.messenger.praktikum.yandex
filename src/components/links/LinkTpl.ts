@@ -1,8 +1,8 @@
 export const LinkTpl = `
 {{#if srcImg}}
-<img src="{{srcImg}}" alt="">
+    <img src="{{srcImg}}" alt="">
 {{^}}
-{{label}}
+    {{label}}
 {{/if}}
 
 `;
