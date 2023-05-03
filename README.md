@@ -19,4 +19,4 @@
 - `npm run eslint` - проверяет проект линтером "eslint"
 
 В проекте используется REST сервис API Yandex https://ya-praktikum.tech/api/v2/swagger и Websockets https://ya-praktikum.tech/api/v2/openapi/ws
-____
+
