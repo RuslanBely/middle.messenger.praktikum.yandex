@@ -1,4 +1,4 @@
-import { Block } from '../../utils/Block';
+import { Block } from '../../utils/block';
 import { profileTpl } from './profileTpl';
 import { Form } from '../../components/forms';
 import { Link } from '../../components/links';

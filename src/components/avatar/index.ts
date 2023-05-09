@@ -1,5 +1,5 @@
 import { AvatarTpl } from './AvatarTpl';
-import { Block } from '../../utils/Block';
+import { Block } from '../../utils/block';
 import './avatar.scss';
 import { withStore } from '../../utils/store';
 

@@ -1,4 +1,4 @@
-import { Block } from './Block';
+import { Block } from './block';
 import { EventBus } from './eventBus';
 import { set } from './helpers';
 import { InChatsData, InChatsUsers } from '../api/ChatsApi';

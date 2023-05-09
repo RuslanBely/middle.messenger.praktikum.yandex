@@ -1,4 +1,4 @@
-import { Block } from "./Block";
+import { Block } from "./block";
 
 export class Route {
   private _pathname:string;

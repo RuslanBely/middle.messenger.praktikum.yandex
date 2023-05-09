@@ -1,4 +1,4 @@
-import { Block } from '../../utils/Block';
+import { Block } from '../../utils/block';
 import { withStore } from '../../utils/store';
 import { ChatUser } from '../chatUser';
 import { InChatsUsers } from '../../api/ChatsApi';

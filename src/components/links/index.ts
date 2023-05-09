@@ -1,5 +1,5 @@
 import { LinkTpl } from './LinkTpl';
-import { Block } from '../../utils/Block';
+import { Block } from '../../utils/block';
 
 export interface LinkProps{
   label: string;

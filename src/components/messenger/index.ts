@@ -1,4 +1,4 @@
-import { Block } from '../../utils/Block';
+import { Block } from '../../utils/block';
 import { withStore, State } from '../../utils/store';
 import { MessengerTpl } from './messengerTpl';
 import { Message } from '../message';

@@ -1,5 +1,5 @@
 import { ButtonTpl } from './ButtonTpl';
-import { Block } from '../../utils/Block';
+import { Block } from '../../utils/block';
 import './button.scss';
 import { Image } from '../image';
 

@@ -1,5 +1,5 @@
 import ChatsController from '../../controllers/ChatsController';
-import { Block } from '../../utils/Block';
+import { Block } from '../../utils/block';
 import { Button } from '../buttons';
 import { AddChatModalTpl } from './addChatModalTpl';
 import { Input } from '../inputs';

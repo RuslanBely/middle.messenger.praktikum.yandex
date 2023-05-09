@@ -1,5 +1,5 @@
 import { Route } from './route';
-import { Block } from './Block';
+import { Block } from './block';
 
 export class Router {
   private _routes: Array<Route>;

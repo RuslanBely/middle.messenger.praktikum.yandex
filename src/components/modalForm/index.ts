@@ -1,5 +1,5 @@
 import { FormTplModal } from './FormTplModal';
-import { Block } from '../../utils/Block';
+import { Block } from '../../utils/block';
 import { Button } from '../buttons';
 import { Input } from '../inputs';
 

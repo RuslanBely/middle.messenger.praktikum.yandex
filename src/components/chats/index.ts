@@ -1,5 +1,5 @@
 import { ChatItemTpl } from './ChatItemTpl';
-import { Block } from '../../utils/Block';
+import { Block } from '../../utils/block';
 import './chats.scss';
 
 interface ChatItemProps {}

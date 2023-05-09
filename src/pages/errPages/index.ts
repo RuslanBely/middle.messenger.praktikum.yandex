@@ -1,4 +1,4 @@
-import { Block } from '../../utils/Block';
+import { Block } from '../../utils/block';
 import { pErrTpl } from './errTpl';
 import './errStyle.scss';
 import { Link } from '../../components/links';

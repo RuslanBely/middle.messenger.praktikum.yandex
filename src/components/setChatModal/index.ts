@@ -1,4 +1,4 @@
-import { Block } from '../../utils/Block';
+import { Block } from '../../utils/block';
 import { Link } from '../links';
 import './setChatModal.scss';
 import { SetChatModalTpl } from './setChatModalTpl';

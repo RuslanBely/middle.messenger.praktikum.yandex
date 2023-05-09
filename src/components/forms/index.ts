@@ -3,7 +3,7 @@ import { FormTplLogin } from './FormTplLogin';
 import { FormPrTplProf } from './FormTplProf';
 import { FormTplChats } from './FormTplLChats';
 import { FormPrTplProfPass } from './FormTplProfPass';
-import { Block } from '../../utils/Block';
+import { Block } from '../../utils/block';
 import { Button } from '../buttons';
 import { Input } from '../inputs';
 import { validProcessing } from '../../utils/validProcessing';
@@ -54,7 +54,7 @@ class FormBase extends Block<FormProps> {
     if (this.props.linkExit) this.children.linkExit = new Link({ ...this.props.linkExit });
 
     this.props.inputs.forEach((el) => {
-      this.children[el.name] = new Input({
+      this.children[el.name]= new Input({
         className: `${this.props.className}__input`,
         id: el.name,
         type: el.type,

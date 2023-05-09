@@ -1,5 +1,5 @@
 import { signupTpl } from './signupTpl';
-import { Block } from '../../utils/Block';
+import { Block } from '../../utils/block';
 import { Form } from '../../components/forms';
 import { Link } from '../../components/links';
 import router from '../../utils/router';
