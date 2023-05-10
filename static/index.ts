@@ -7,17 +7,18 @@ import { ErrPage } from '../src/pages/errPages';
 import authController from '../src/controllers/AuthController';
 import './style.scss';
 
+export enum Routes {
+    Index = '/',
+    SignUp = '/sign-up',
+    Profile = '/settings',
+    Chats = '/messenger',
+    E500 = '/500',
+    E400 = '/404'
+  
+  }
+
 
 window.addEventListener('DOMContentLoaded', async () => {
-    enum Routes {
-        Index = '/',
-        SignUp = '/sign-up',
-        Profile = '/settings',
-        Chats = '/messenger',
-        E500 = '/500',
-        E400 = '/404'
-
-      }
 
     router
       .use(Routes.Index, LoginPage)

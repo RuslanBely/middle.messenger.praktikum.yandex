@@ -54,7 +54,7 @@ class FormBase extends Block<FormProps> {
     if (this.props.linkExit) this.children.linkExit = new Link({ ...this.props.linkExit });
 
     this.props.inputs.forEach((el) => {
-      this.children[el.name] = new Input({
+      this.children[el.name]= new Input({
         className: `${this.props.className}__input`,
         id: el.name,
         type: el.type,
